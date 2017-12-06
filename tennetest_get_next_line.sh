@@ -12,11 +12,12 @@ make
 counter=1
 while [ $counter -le 16 ]
 do
-	cat /tests/ex$counter > test$counter
+	cat /tests/ex$counter > /tests/test$counter
 	./test_gnl tests/ex$counter
-	diff -u /tests/test$counter /tests/ex$counter > diff_output$counter
-	cat diff_output$counter
+	diff -u /tests/test$counter /tests/ex$counter > tests/diff_output$counter
+	cat tests/diff_output$counter
 	let "counter++"
+done
 
 echo "$COLOR\0[DONE]$END"
 
