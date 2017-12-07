@@ -16,7 +16,5 @@ do
 	cat -e tests/diff_output$counter
 	let "counter++"
 done
-rm get_next_line.h.gch
-rm get_next_line.h-e
 echo "$COLOR\t[DONE]$END"
 #read -p "Press enter to continue..."
