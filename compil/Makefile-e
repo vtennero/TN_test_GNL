@@ -12,35 +12,37 @@
 
 NAME = test_gnl
 
+MAIN = main_$3_$4.cmain
+
 FLAGS = -Wall -Werror -Wextra
-#FLAGS = -Wall -Wno-empty-body -Wno-unused -Wextra
 
 LIBFT_DIR = libft
 LIBFT_NAME = libft.a
 
 LIBFT = $(patsubst %, $(LIBFT_DIR)/%,$(LIBFT_NAME))
 
-OBJ = get_next_line.o main.o
+OBJ = get_next_line.o $MAIN.o
 
-SRC = get_next_line.c main.c
+SRC = get_next_line.c $MAIN.c
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME) : $(LIBFT)
+$(NAME) : lib
 	@ gcc $(FLAGS) -g -c $(SRC) -I ./
 	@ gcc $(FLAGS) -g -o $(NAME) $(OBJ) -L $(LIBFT_DIR) -lft
 
+lib: $(LIBFT)
+
 $(LIBFT):
 	@ make -C $(LIBFT_DIR)
+	@ make clean -C $(LIBFT_DIR)
 
 clean:
 	@ /bin/rm -f $(OBJ)
-	@ make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	@ /bin/rm -f $(NAME)
-	@ make fclean -C $(LIBFT_DIR)
 
 re: fclean all

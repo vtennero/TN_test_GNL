@@ -6,41 +6,45 @@
 #    By: vtennero <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/17 15:16:05 by vtennero          #+#    #+#              #
-#    Updated: 2017/12/07 15:33:27 by tbailly-         ###   ########.fr        #
+#    Updated: 2017/12/07 15:32:33 by tbailly-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = test_gnl
 
+PATH_TO_MAINS = compil/mains/
+
+MAIN = main_$3_$4
+
 FLAGS = -Wall -Werror -Wextra
-#FLAGS = -Wall -Wno-empty-body -Wno-unused -Wextra
 
 LIBFT_DIR = libft
 LIBFT_NAME = libft.a
 
 LIBFT = $(patsubst %, $(LIBFT_DIR)/%,$(LIBFT_NAME))
 
-OBJ = get_next_line.o main_leaks.o
+OBJ = get_next_line.o $(MAIN).o
 
-SRC = get_next_line.c main_leaks.c
+SRC = get_next_line.c $(PATH_TO_MAINS)$(MAIN).c
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME) : $(LIBFT)
+$(NAME) : lib
 	@ gcc $(FLAGS) -g -c $(SRC) -I ./
 	@ gcc $(FLAGS) -g -o $(NAME) $(OBJ) -L $(LIBFT_DIR) -lft
 
+lib: $(LIBFT)
+
 $(LIBFT):
 	@ make -C $(LIBFT_DIR)
+	@ make clean -C $(LIBFT_DIR)
 
 clean:
 	@ /bin/rm -f $(OBJ)
-	@ make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	@ /bin/rm -f $(NAME)
-	@ make fclean -C $(LIBFT_DIR)
 
 re: fclean all

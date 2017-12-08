@@ -7,17 +7,27 @@ source resources/general_tests.sh
 source resources/leaks_tests.sh
 source resources/valgrind.sh
 source resources/oui_qui_leaks.sh
+source resources/stdin_tests.sh
 
 sh animation.sh
 
 echo "$COLOR\0TN_TEST // GET_NEXT_LINE$END"
 sleep 1
 echo "$COLOR\0Norminette...$END"
-#norminette | grep Error > norminette_log.txt
+norminette | grep Error > norminette_log.txt
+norminette | grep Warning >> norminette_log.txt
+if [ -s norminette_log.txt ]
+	then
+	cat norminette_log.txt
+	say norminette
+fi
 echo "$COLOR\0[DONE]$END"
-#read -p "Press enter to continue..."
+read -p "Press enter to continue..."
 
-#general_tests
+general_tests
+read -p "Press enter to continue..."
+stdin_tests
+read -p "Press enter to continue..."
 leaks_tests
 
 echo "$COLOR\0[ALL DONE]$END"

@@ -23,8 +23,10 @@ clear
 echo "$COLOR\0TN_TEST // GET_NEXT_LINE$END"
 sleep 1
 echo "$COLOR\0Checking Memory leaks...$END"
+echo "$COLOR\0ID = exam ; password = exam$END"
 
-#check_valgrind 5 15
+check_valgrind 5 15 file
+#check_valgrind 5 15 stdin
 oui_qui_leaks
 
 echo "$COLOR\0Memory Leaks [ALL DONE]$END"
