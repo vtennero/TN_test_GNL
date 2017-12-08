@@ -13,6 +13,9 @@
 #include "get_next_line.h"
 #include <stdio.h>
 #include <fcntl.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <unistd.h>
 
 int	main(int ac, char **av)
 {
