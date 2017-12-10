@@ -54,11 +54,10 @@ check_valgrind()
 				check_one_valgrind $c $i
 				let "c++"
 			done
-			rm -rf test_gnl$i.dSYM
 			c=1
 			let "i++"
 		done
 	fi
-
+	rm -rf test_gnl$i.dSYM
 	echo "$COLOR\n[DONE]$END"
 }

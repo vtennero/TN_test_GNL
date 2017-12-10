@@ -11,6 +11,7 @@ clear
 echo "$COLOR\0TN_TEST // GET_NEXT_LINE$END"
 sleep 1
 echo "$COLOR\0Oui qui leaks$END"
+echo "$COLOR\0ID = exam ; password = exam$END"
 
 mkdir -p $OUI_QUI_LEAKS_LOGS_DIR
 
