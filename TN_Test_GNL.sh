@@ -14,13 +14,14 @@ sh animation.sh
 echo "$COLOR\0TN_TEST // GET_NEXT_LINE$END"
 sleep 1
 echo "$COLOR\0Norminette...$END"
-norminette | grep Error > norminette_log.txt
-norminette | grep Warning >> norminette_log.txt
-if [ -s norminette_log.txt ]
-	then
-	cat norminette_log.txt
-	say norminette
-fi
+#norminette | grep Error > norminette_log.txt
+#norminette | grep Warning >> norminette_log.txt
+norminette
+#if [ -s norminette_log.txt ]
+#	then
+#	cat norminette_log.txt
+#	say norminette
+#fi
 echo "$COLOR\0[DONE]$END"
 read -p "Press enter to continue..."
 
