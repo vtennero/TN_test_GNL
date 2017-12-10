@@ -34,6 +34,7 @@ set_buff_and_compile()
 	sed -i -e 's/MAIN = .*/MAIN = main_'$3'\_'$4'/g' compil/Makefile
 	sed -i -e 's/test_gnl.*/test_gnl'$2'/g' compil/Makefile
 	cp compil/Makefile ./Makefile
+	cp compil/main_'$3'\_'$4'.c
 	make -s re
 	rm compil/Makefile-e
 }

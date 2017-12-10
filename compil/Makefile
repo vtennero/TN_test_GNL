@@ -12,10 +12,6 @@
 
 NAME = test_gnl
 
-PATH_TO_MAINS = compil/mains/
-
-MAIN = main_$3_$4
-
 FLAGS = -Wall -Werror -Wextra
 
 LIBFT_DIR = libft
@@ -23,17 +19,16 @@ LIBFT_NAME = libft.a
 
 LIBFT = $(patsubst %, $(LIBFT_DIR)/%,$(LIBFT_NAME))
 
-OBJ = get_next_line.o $(MAIN).o
-
-SRC = get_next_line.c $(PATH_TO_MAINS)$(MAIN).c
+OBJ = get_next_line.o main.o
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(NAME) : lib
-	@ gcc $(FLAGS) -g -c $(SRC) -I ./
-	@ gcc $(FLAGS) -g -o $(NAME) $(OBJ) -L $(LIBFT_DIR) -lft
+	@ clang $(FLAGS) -I libft/includes -o get_next_line.o -c get_next_line.c
+	@ clang $(FLAGS) -I libft/includes -o main.o -c main.c
+	@ clang -o $(NAME) $(OBJ) -I libft/includes -L libft/ -lft
 
 lib: $(LIBFT)
 
