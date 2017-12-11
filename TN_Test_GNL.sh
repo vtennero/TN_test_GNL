@@ -16,7 +16,9 @@ sleep 1
 echo "$COLOR\0Norminette...$END"
 #norminette | grep Error > norminette_log.txt
 #norminette | grep Warning >> norminette_log.txt
-norminette
+norminette > norminette_log.txt
+cat norminette_log.txt | grep "may not compile"
+cat norminette_log.txt | grep "Error"
 #if [ -s norminette_log.txt ]
 #	then
 #	cat norminette_log.txt

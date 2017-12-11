@@ -6,7 +6,7 @@
 #    By: vtennero <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/17 15:16:05 by vtennero          #+#    #+#              #
-#    Updated: 2017/12/07 15:32:33 by tbailly-         ###   ########.fr        #
+#    Updated: 2017/12/11 19:51:06 by vtennero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,9 @@ OBJ = get_next_line.o main.o
 all: $(NAME)
 
 $(NAME) : lib
-	@ clang $(FLAGS) -I libft/includes -o get_next_line.o -c get_next_line.c
-	@ clang $(FLAGS) -I libft/includes -o main.o -c main.c
-	@ clang -o $(NAME) $(OBJ) -I libft/includes -L libft/ -lft
+	@ clang $(FLAGS) -g -I libft/includes -o get_next_line.o -c get_next_line.c
+	@ clang $(FLAGS) -g -I libft/includes -o main.o -c main.c
+	@ clang -o $(NAME) $(OBJ) -g -I libft/includes -L libft/ -lft
 
 lib: $(LIBFT)
 
