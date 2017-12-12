@@ -11,7 +11,6 @@ clear
 echo "$COLOR\0TN_TEST // GET_NEXT_LINE$END"
 sleep 1
 echo "$COLOR\0Oui qui leaks$END"
-echo "$COLOR\0ID = exam ; password = exam$END"
 
 mkdir -p $OUI_QUI_LEAKS_LOGS_DIR
 
@@ -25,6 +24,8 @@ echo "$COLOR\0Compiling with  BUFF_SIZE = 1,000...$END"
 set_buff_and_compile 1000 4 leaks file
 echo "$COLOR\0Compiling with  BUFF_SIZE = 1,000,000...$END"
 set_buff_and_compile 1000000 5 leaks file
+
+echo "$COLOR\0Tip: ID = exam ; password = exam$END"
 
 while [ $x -le 5 ]
 do

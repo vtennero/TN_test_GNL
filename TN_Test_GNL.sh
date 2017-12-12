@@ -15,7 +15,7 @@ sh resources/animation.sh
 echo "$COLOR\0TN_TEST // GET_NEXT_LINE$END"
 sleep 1
 echo "$COLOR\0Norminette...$END"
-norme
+norm
 #norminette | grep Error > norminette_log.txt
 #norminette | grep Warning >> norminette_log.txt
 #norminette > norminette_log.txt
