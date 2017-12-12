@@ -1,3 +1,5 @@
+#!/bin/bash
+
 COLOR='\x1b[38;5;220m'
 END='\x1b[0m'
 

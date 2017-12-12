@@ -8,17 +8,19 @@ source resources/leaks_tests.sh
 source resources/valgrind.sh
 source resources/oui_qui_leaks.sh
 source resources/stdin_tests.sh
+source resources/norme.sh
 
-sh animation.sh
+sh resources/animation.sh
 
 echo "$COLOR\0TN_TEST // GET_NEXT_LINE$END"
 sleep 1
 echo "$COLOR\0Norminette...$END"
+norme
 #norminette | grep Error > norminette_log.txt
 #norminette | grep Warning >> norminette_log.txt
-norminette > norminette_log.txt
-cat norminette_log.txt | grep "may not compile"
-cat norminette_log.txt | grep "Error"
+#norminette > norminette_log.txt
+#cat norminette_log.txt | grep "may not compile"
+#cat norminette_log.txt | grep "Error"
 #if [ -s norminette_log.txt ]
 #	then
 #	cat norminette_log.txt
