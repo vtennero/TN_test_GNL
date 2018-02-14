@@ -6,7 +6,7 @@
 /*   By: vtennero <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 12:02:00 by vtennero          #+#    #+#             */
-/*   Updated: 2017/12/06 20:22:28 by vtennero         ###   ########.fr       */
+/*   Updated: 2018/02/13 15:42:19 by vtennero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,14 @@ int	main(int ac, char **av)
 		{
 			printf("%s\n", *line);
 			//printf("%i\n%s\n", return_value, *line);
-			free(*line);
+			if (fd >= 0)
+				free(*line);
 		}
-		free(*line);
-		free(line);
+		if (fd >= 0)
+		{
+			free(*line);
+			free(line);
+		}
 		close(fd);
 		while (1)
 			;
